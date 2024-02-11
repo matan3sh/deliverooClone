@@ -1,8 +1,14 @@
 import Colors from "@/constants/Colors"
 import { Ionicons } from "@expo/vector-icons"
 import React from "react"
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native"
-import { TouchableOpacity } from "react-native-gesture-handler"
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 
 const CustomHeader = () => {
   return (
