@@ -1,3 +1,4 @@
+import SearchBar from "@/components/SearchBar"
 import Colors from "@/constants/Colors"
 import { Ionicons } from "@expo/vector-icons"
 import React from "react"
@@ -33,6 +34,8 @@ const CustomHeader = () => {
           <Ionicons name="person-outline" size={20} color={Colors.primary} />
         </TouchableOpacity>
       </View>
+
+      <SearchBar />
     </SafeAreaView>
   )
 }
