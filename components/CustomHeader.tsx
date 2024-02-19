@@ -1,7 +1,9 @@
+import BottomSheet from "@/components/BottomSheet"
 import SearchBar from "@/components/SearchBar"
 import Colors from "@/constants/Colors"
 import { Ionicons } from "@expo/vector-icons"
-import React from "react"
+import { BottomSheetModal } from "@gorhom/bottom-sheet"
+import React, { useRef } from "react"
 import {
   Image,
   SafeAreaView,
@@ -12,17 +14,23 @@ import {
 } from "react-native"
 
 const CustomHeader = () => {
+  const bottomSheetRef = useRef<BottomSheetModal>(null)
+
+  const openModal = () => {
+    bottomSheetRef.current?.present()
+  }
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={openModal}>
           <Image
             style={styles.bike}
             source={require("@/assets/images/bike.png")}
           />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.titleContainer}>
+        <TouchableOpacity style={styles.titleContainer} onPress={openModal}>
           <Text style={styles.title}>Delivery • Now</Text>
           <View style={styles.locationName}>
             <Text style={styles.subtitle}>San Francisco, CA</Text>
@@ -36,6 +44,7 @@ const CustomHeader = () => {
       </View>
 
       <SearchBar />
+      <BottomSheet ref={bottomSheetRef} />
     </SafeAreaView>
   )
 }
